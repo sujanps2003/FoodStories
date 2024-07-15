@@ -1,0 +1,119 @@
+{% extends "navbar.html" %}
+
+{% block start %}
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../../media/landing_bg.webp'); /* Set the background image for the entire page */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensures the background image stays fixed */
+            color: #fff; /* Ensures text is visible against the background image */
+        }
+        .navbar {
+            background-color: rgba(56, 76, 133, 0.9); /* Semi-transparent background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand span {
+            color: #F39C12; /* Highlight color */
+        }
+        .hero-section {
+            padding: 180px 0 60px; /* Adjusted padding: top 180px, bottom 60px */
+            text-align: center;
+            /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background for better text readability */
+            border-radius: 10px; /* Optional: rounded corners for hero section */
+            margin-top: 20px;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero-section .btn {
+            margin: 5px;
+        }
+        .hero-section img {
+            max-width: 100%;
+            height: auto;
+        }
+        .info-section {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+            padding: 10px 20px; /* Adjusted padding: top and bottom 40px, left and right 20px */
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .info-section h2 {
+            color: #F39C12;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .info-section .row {
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section .col-md-4 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .info-section p {
+            color: #fff;
+            font-size: 18px;
+        }
+        .info-section .btn {
+            background-color: #F39C12;
+            border-color: #F39C12;
+            color: #20315f;
+        }
+        @media (max-width: 768px) {
+            .info-section .col-md-4 {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 style="color: #F39C12;"><span style="color: #20315f;">Discover</span> FoodStories</h1>
+                    <p style="color: #20315f;">Explore a world of culinary delights and uncover your inner chef with our diverse collection of recipes.</p>
+                    <a href="/receipes/" class="btn btn-dark btn-lg" style="background-color: #F39C12; border-color: #F39C12;">Explore Recipes</a>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Empty column for spacing or additional content -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>About Us</h2>
+                    <p>Learn about our mission and values. We are committed to bringing you the best culinary experiences.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with us for any queries or feedback. Reach out to us via email or phone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Details</h2>
+                    <p>Find detailed information about our services. Explore our various recipe categories and cooking tips.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+</body>
+</html>

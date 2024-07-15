@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #384c85;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 0.2rem 1rem;
+        }
+
+        .navbar-brand {
+            color: #F39C12;
+            margin: 2;
+            padding: 0.2rem 0;
+        }
+
+        .navbar-brand-hover:hover {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #F39C12;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff;
+        }
+
+        .navbar-collapse {
+            gap: 1rem;
+        }
+
+        .btn-outline-success {
+            color: #F39C12;
+            border-color: #F39C12;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #F39C12;
+            color: #20315f;
+        }
+
+        .input-group .form-control {
+            border-color: #F39C12;
+        }
+
+        .rounded-btn {
+            border-radius: 20px;
+        }
+
+        .card.shadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header .close {
+            outline: none;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 2px;
+        }
+
+        .card-img-top {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-title {
+            color: #20315f;
+        }
+
+        .modal-content {
+            background-color: #F39C12;
+            color: white;
+        }
+
+        .modal-body img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body p {
+            font-size: larger;
+        }
+
+        .modal-body strong {
+            font-size: x-large;
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 30px;
+        }
+        .custom-link {
+        color: #F39C12;
+        }
+        .custom-link:hover {
+        color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-hover" style="font-family: serif; font-size: xx-large;" href="/"><strong>FoodStories</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/receipes/">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addreceipe/">Add</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/categories/starters/">Starters</a></li>
+                            <li><a class="dropdown-item" href="/categories/main_course/">Main Course</a></li>
+                            <li><a class="dropdown-item" href="/categories/desserts/">Desserts</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" method="GET" action="/receipes/">
+                    <div class="input-group">
+                        <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.397l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-4.242 0a5 5 0 1 1 1.397-1.397L3.05 5.097a1 1 0 0 1 1.415-1.414l3.85 3.85z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                {% if user.is_authenticated %}
+                <a class="nav-link custom-link" href="/logout/" style="color: #F39C12;">Logout</a>
+                {% else %}
+                <a class="nav-link custom-link" href="/login/" style="color: #F39C12;">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    {% block start %}
+    {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

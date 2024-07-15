@@ -1,0 +1,41 @@
+{% extends "navbar.html" %}
+{% block start %}
+<div class="container mt-5">
+    <h2 class="mb-4" style="color:#20315f;">Our Most Popular Recipes, Ever</h2>
+    <div class="row mt-5">
+        {% for receipe in receipes %}
+        <div class="col-md-3 col-lg-4 mb-4">
+            <div class="card h-100 shadow">
+                <img src="/media/{{ receipe.receipe_image }}" class="card-img-top" alt="{{ receipe.receipe_name }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ receipe.receipe_name }}</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="button" class="btn rounded-btn m-2" data-bs-toggle="modal" data-bs-target="#recipeModal-{{ receipe.id }}"
+                        style="background-color: #F39C12; color: white;">
+                        Get Recipe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipe Modal -->
+        <div class="modal fade" id="recipeModal-{{ receipe.id }}" tabindex="-1" aria-labelledby="recipeModalLabel-{{ receipe.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="recipeModalLabel-{{ receipe.id }}">{{ receipe.receipe_name }}</h3>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/media/{{ receipe.receipe_image }}" class="img-fluid mb-3" alt="{{ receipe.receipe_name }}">
+                        <p><strong>Instructions:</strong></p>
+                        <p>{{ receipe.receipe_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

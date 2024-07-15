@@ -1,0 +1,54 @@
+{% extends "navbar.html" %}
+{% block start %}
+<br><br>
+<h4 style="text-align: center">{{ category|upper }}</h4>
+<div class="container mt-5">
+    <div class="row mt-5 justify-content-center">
+        {% for receipe in receipes %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-50">
+                <img src="/media/{{ receipe.receipe_image }}" class="card-img-top" alt="{{ receipe.receipe_name }}" style="height: 200px; width: 100%; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ receipe.receipe_name }}</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="button" class="btn rounded-btn m-2" data-toggle="modal" data-target="#recipeModal-{{ receipe.id }} " style="background-color: #F39C12; color: white;">
+                        Get Recipe
+                    </button>
+                </div>
+            </div>
+        </div>
+
+         <!-- Recipe Modal -->
+         <div class="modal fade" id="recipeModal-{{ receipe.id }}" tabindex="-1" aria-labelledby="recipeModalLabel-{{ receipe.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: #F39C12; color: white;">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="recipeModalLabel-{{ receipe.id }}" style="font-size: 24px;">{{ receipe.receipe_name }}</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style=" color: white; position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 30px;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    
+                    <div class="modal-body">
+                        <img src="/media/{{ receipe.receipe_image }}" class="img-fluid mb-3" alt="{{ receipe.receipe_name }}">
+                        <!-- <h6><span class="badge badge-secondary">{{ receipe.receipe_category }}</span></h6> -->
+                        <p style="font-size: x-large; text-align: center;"><strong>Instructions:</strong></p>
+                        <p style="font-size:larger;">{{ receipe.receipe_description }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .rounded-btn {
+        border-radius: 20px; /* Adjust this value to make the button more or less rounded */
+    }
+</style>
+{% endblock %}
