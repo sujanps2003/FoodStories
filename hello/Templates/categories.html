@@ -14,7 +14,8 @@
                 </div>
                 <div class="card-footer text-center">
                     <button type="button" class="btn rounded-btn m-2" data-toggle="modal"
-                        data-target="#recipeModal-{{ receipe.id }} " style="background-color:#384c85; color: #F39C12;">
+                        data-target="#recipeModal-{{ receipe.id }} "
+                        style="background-color:#F39C12; color:whitesmoke;">
                         Get Recipe
                     </button>
                 </div>
@@ -25,7 +26,7 @@
         <div class="modal fade" id="recipeModal-{{ receipe.id }}" tabindex="-1"
             aria-labelledby="recipeModalLabel-{{ receipe.id }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="background-color: #384c85; ">
+                <div class="modal-content" style="background-color:#F39C12; color: whitesmoke; ">
                     <div class="modal-header">
                         <h3 class="modal-title" id="recipeModalLabel-{{ receipe.id }}" style="font-size: 24px;">{{
                             receipe.receipe_name }}</h3>
