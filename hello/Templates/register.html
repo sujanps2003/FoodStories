@@ -1,37 +1,38 @@
 {% extends "navbar.html" %}
 {% block start%}
-    <div class="container mt-5">
-        <form class="col-6 mx-auto"  method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <h1>Register</h1>
+<div class="container mt-5">
+    <h2 class="text-center" style="color: #384c85;">Register</h2>
+    <form class="col-6 mx-auto" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
 
-            {% if messages %}
+        {% if messages %}
 
-            <div class="alert alert-primary" role="alert">
-              {% for message in messages %}
-              {{message}}
-              {% endfor %}
-            </div>
+        <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </div>
 
 
-            <ul class="messages">
-           
-            <li {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
-            </ul>
-            {% endif %}
+        <ul class="messages">
 
+            <li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+        </ul>
+        {% endif %}
+
+        <div class="mb-3">
             <div class="mb-3">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input  name="username" type="text" class="form-control" required>
+                <label for="username" class="form-label" style="color: #384c85;">Username</label>
+                <input name="username" type="text" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input  name="password" type="password" class="form-control" required>
+                <label for="password" class="form-label" style="color: #384c85;">Password</label>
+                <input name="password" type="password" class="form-control" required>
             </div>
-            <p>Already have an account <a href="/login/" style="color: #F39C12;">login</a></p>
+            <p>Already have an account? <a href="/login/" style="color: 384c85;">Login</a></p>
 
-            <button type="submit" class="btn btn-primary" style="background-color:  #F39C12; border-color: #F39C12;">submit</button>
-          </form>
+            <button type="submit" class="btn btn-primary"
+                style="background-color:   #384c85; border-color: #384c85;color: #F39C12;">Register</button>
+    </form>
 
-{% endblock %}
+    {% endblock %}

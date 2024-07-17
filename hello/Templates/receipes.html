@@ -11,8 +11,9 @@
                     <h5 class="card-title">{{ receipe.receipe_name }}</h5>
                 </div>
                 <div class="card-footer text-center">
-                    <button type="button" class="btn rounded-btn m-2" data-bs-toggle="modal" data-bs-target="#recipeModal-{{ receipe.id }}"
-                        style="background-color: #F39C12; color: white;">
+                    <button type="button" class="btn rounded-btn m-2" data-bs-toggle="modal"
+                        data-bs-target="#recipeModal-{{ receipe.id }}"
+                        style="background-color:#384c85; color: #F39C12;">
                         Get Recipe
                     </button>
                 </div>
@@ -20,15 +21,17 @@
         </div>
 
         <!-- Recipe Modal -->
-        <div class="modal fade" id="recipeModal-{{ receipe.id }}" tabindex="-1" aria-labelledby="recipeModalLabel-{{ receipe.id }}" aria-hidden="true">
+        <div class="modal fade" id="recipeModal-{{ receipe.id }}" tabindex="-1"
+            aria-labelledby="recipeModalLabel-{{ receipe.id }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
+                <div class="modal-content" style="background-color: #384c85; ">
+                    <div class=" modal-header">
                         <h3 class="modal-title" id="recipeModalLabel-{{ receipe.id }}">{{ receipe.receipe_name }}</h3>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <img src="/media/{{ receipe.receipe_image }}" class="img-fluid mb-3" alt="{{ receipe.receipe_name }}">
+                        <img src="/media/{{ receipe.receipe_image }}" class="img-fluid mb-3"
+                            alt="{{ receipe.receipe_name }}">
                         <p><strong>Instructions:</strong></p>
                         <p>{{ receipe.receipe_description }}</p>
                     </div>

@@ -2,19 +2,23 @@
 {% block start %}
 <nav class="navbar dark p-3 shadow-lg" style="background-color: white;">
     <div class="container mt-5">
+
         <form class="col-6 mx-auto card p-4" method="post" enctype="multipart/form-data">
+            <h3 style="color: #384c85; padding-bottom: 3vh;">Share Your Favourites !!</h3>
+
             {% csrf_token %}
             <div class="mb-3">
-                <label for="receipe_name" class="form-label">Recipe name</label>
+                <label for="receipe_name" class="form-label" style="color: #384c85;">Recipe name</label>
                 <input name="receipe_name" required type="text" class="form-control" id="receipe_name">
             </div>
             <div class="mb-3">
-                <label for="receipe_description" class="form-label">Recipe description</label>
+                <label for="receipe_description" class="form-label" style="color: #384c85;">Recipe description</label>
                 <textarea name="receipe_description" class="form-control" id="receipe_description"></textarea>
             </div>
             <div class="mb-3">
-                <label for="receipe_category" class="form-label">Category</label>
-                <select name="receipe_category" class="form-control" id="receipe_category" required>
+                <label for="receipe_category" class="form-label" style="color: #384c85;">Category</label>
+                <select name="receipe_category" class="form-control" id="receipe_category" required
+                    style="color: #384c85;">
                     <option value="" disabled selected>Select category</option>
                     <option value="starters">Starters</option>
                     <option value="main_course">Main Course</option>
@@ -22,10 +26,12 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="receipe_image" class="form-label">Recipe image</label>
-                <input name="receipe_image" type="file" class="form-control" id="receipe_image">
+                <label for="receipe_image" class="form-label" style="color: #384c85;">Recipe image</label>
+                <input name="receipe_image" type="file" class="form-control" id="receipe_image" style="color: #384c85;">
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #F39C12; border-color: #F39C12;">Add recipe</button>
+            <button type="submit" class="btn btn-primary"
+                style="background-color: #384c85; border-color: #384c85; color: #F39C12 ;">Add
+                recipe</button>
         </form>
     </div>
 </nav>
