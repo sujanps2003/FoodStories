@@ -34,19 +34,18 @@ Before you begin, ensure you have the following installed:
 
 ## Create a virtual environment
 
-    ```bash
-
+```bash
 python3 -m venv venv
-source venv/bin/activate # For Windows: venv\Scripts\activate
+```
 
-````
 ## Install the required packages and Apply migrations
+
 ```bash
 pip install -r requirements.txt
 
 python manage.py migrate
 
-````
+```
 
 ## Run the development server
 
