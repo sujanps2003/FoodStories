@@ -13,7 +13,7 @@ FoodStories is a web application developed using Django and Bootstrap. The proje
 
 - **Backend:** Django
 - **Frontend:** Bootstrap, HTML, CSS
-- **Database:** SQLite (default) or any database of your choice
+- **Database:** SQLite3
 - **Deployment:** Compatible with local and production environments
 
 ## Prerequisites
