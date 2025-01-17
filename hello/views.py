@@ -29,10 +29,10 @@ def landing(request):
     return render(request, 'landing.html')
 
 def category_recipes(request, category):
-    recipes = Receipe.objects.filter(receipe_category=category)
+    receipes = Receipe.objects.filter(receipe_category=category)
 
     context = {
-        'receipes': recipes,
+        'receipes': receipes,
         'category':category,
     }
     return render(request, 'categories.html', context)
@@ -102,7 +102,7 @@ def register(request):
 
         user = User.objects.filter(username = username)
         if user.exists():
-            messages.info(request, "user name already exits")
+            messages.info(request, "User name already exits")
             return redirect('/register/')
 
         user = User.objects.create(
@@ -111,8 +111,8 @@ def register(request):
         user.set_password(password)
         user.save()
 
-        messages.info(request, "account created sucessfully")
-        return redirect('/')
+        messages.info(request, "Account created sucessfully")
+        return redirect('/login/')
     return render(request,'register.html')
 
 
